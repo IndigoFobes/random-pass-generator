@@ -38,11 +38,54 @@ function generatePassword() {
   }
 
   if (userLength >= 8 && userLength <= 128) {
-    var userUpper = window.confirm("Please confirm: Would you like to include uppercase letters in your password?")
+    var userUpper = window.confirm("Please confirm: Would you like to include uppercase letters in your password?");
+  }
+  else {
+    return;
+  };
+
+  if (userUpper == true || userUpper == false) {
+    var userLower = window.confirm("Please confirm: Would you like to include lowercase letters in your password?");
   }
   else {
     return;
   }
+
+  if (userLower == true || userLower == false) {
+    var userNumbers = window.confirm("Please confirm: Would you like to include numbers in your password?");
+  }
+  else {
+    return;
+  }
+
+  if (userNumbers == true || userNumbers == false) {
+    var userSpecial = window.confirm("Please confirm: Would you like to include special characters in your password?");
+  }
+  else {
+    return;
+  }
+
+  if (userUpper == false && userLower == false && userNumbers == false && userSpecial == false) {
+    var errorMessage = window.confirm("You must select at least on kind of character to receive a password. Please try again.")
+  }
+
+  if (errorMessage == true) {
+    return generatePassword();
+  }
+  else {
+    return;
+  }
+
+  //
+//function userUpperYes(result) {
+ // var userLower = window.prompt("Do you want lowercase, too??");
+//};
+
+//function userUpperNo(error) {
+//  function userLower()
+//}
+
+//function userLower.then(userUpperYes, userUpperNo);
 
 
 }
