@@ -1,19 +1,28 @@
 // Assignment code here
   //User choices for password
-var userChoice = {
+/*var userChoice = {
   passLength: 8,
   uppercase: true,
   lowercase: true,
   numbers: true,
   specialChar: true,
-}
+}*/
+
+
+
+
   // Arrays for each key-value listed above
-var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-var num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0] 
-var special = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
+var fullList = {
+  upper: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+  lower: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+  num: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0], 
+  special: [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"],
+}
+var fullCharset = [];
 
+fullCharset.push(...fullList.upper, ...fullList.lower, ...fullList.num, ...fullList.special);
 
+console.log(fullCharset.length);
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -64,20 +73,73 @@ function generatePassword() {
     var errorMessage = window.confirm("You must select at least on kind of character to receive a password. Please try again.")
   }
 
-  // They either start over or return to the main screen.
-  if (errorMessage == true) {
-    return generatePassword();
-  }
-  else {
-    return;
+// If the user excludes any types of characters...
+  if (userUpper !== true) {
+    delete fullList.upper;
   }
 
-// And now the math!
+  if (userLower !== true) {
+    delete fullList.lower;
+  }
 
+  if (userNumbers !== true) {
+    delete fullList.num;
+  }
+
+  if (userSpecial !== true) {
+    delete fullList.special;
+  }
+
+// Now the MATH.
+
+for (var i = 0; i < fullCharset.length; i++) {
+  password += fullCharset.charAt(math.floor(math.random() * fullCharset.length));
+}
+
+ // Error message moved from line 75. They either start over or return to the main screen.
+if (errorMessage == true) {
+  return generatePassword();
+}
+else {
+  return;
+}
+
+//var fullCharset = upper.concat(lower, numbers, special);
+
+// This 'result' is the result of the filter method. We want the result to be NO lowercase letters
+/* var result = fullCharset.filter(fullList);
+function fullList(fullCharset) {
+  return == lower
+} */
+
+
+/* if (userUpper == true) {
+  fullCharset = upper;
+}
+if (userLower == true) {
+  fullCharset = fullCharset.concat(lower);
+}
+if (userNumbers == true) {
+  fullCharset = fullCharset.concat(numbers);
+}
+if (userSpecial == true) {
+  fullCharset = fullCharset.concat(special)
+} */
+
+
+//if (userUpper == false) {
+//  var charset = fullCharset.substr(upper);
+//}
+//if (userLower == false) {
+//  var charset = fullCharset.substr(lower);
+//}
+//if (userNumbers == false) {
+//  var charset =
+//}
 
 }
 
-
+console.log(fullCharset);
 
   //what is the number they chose? 
 
@@ -87,7 +149,7 @@ generateBtn.addEventListener("click", writePassword);
 
 
 // JUST PRACTICING to get the hang of this
-console.log(upper.length)
+/*console.log(upper.length)
 
 console.log(upper[1])
 
@@ -97,6 +159,18 @@ console.log(special[2])
 
 console.log(special.length)
 
-console.log(special[24])
+console.log(special[24])*/
 
 //console.log(num.length) 
+
+console.log("upper" in fullList);
+
+console.log("lower" in fullCharset);
+
+console.log("lower" in fullList);
+
+console.log(fullList.upper);
+
+console.log([3] in fullList.upper);
+
+console.log(fullList.upper[3]);
