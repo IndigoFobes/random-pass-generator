@@ -96,15 +96,18 @@ function randomPass() {
   for (var i = 0; i < userLength; i++) {
     // This finds a random number wihtin our fullCharset index... continues through the loop until it satisfies the userLength requirement.
       var myNumber = Math.floor(Math.random() * charLength);
-      var result = fullCharset[myNumber];
-      var result2 = Array.from(result);
-      var result3 = result2.join('');
-      console.log(result3);
+      result.push(fullCharset[myNumber]);
+      //var result2 = Array.from(result);
+      //var result3 = result2.join('');
+      //console.log(result3);
       
       //Array.from(fullCharset[myNumber]); 
       //return result.join('');
       //console.log(result);
-    }};
+    }
+    return result.join('');
+  };
+
 
     randomPass();
 
