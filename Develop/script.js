@@ -7,6 +7,7 @@ var fullList = {
   special: [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"],
 }
 var fullCharset = [];
+var password = "";
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -17,7 +18,7 @@ function writePassword() {
   var password = generatePassword()
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-}
+};
 
 
 // HERE'S THE BIG IF/ELSE FUNCTION
@@ -58,6 +59,7 @@ function generatePassword() {
     var errorMessage = window.confirm("You must select at least on kind of character to receive a password. Please try again.")
   }
 
+
 // If the user includes any types of characters... add them to the fullCharset.
   if (userUpper == true) {
     fullCharset.push(...fullList.upper);
@@ -77,25 +79,32 @@ function generatePassword() {
 
     // console.log(fullCharset);
 
-
-// Now the MATH.
-
-for (var i = 0; i < fullCharset.length; i++) {
-  password += fullCharset.charAt(math.floor(math.random() * fullCharset.length));
-}
-
- // Error message moved from line 75. They either start over or return to the main screen.
+   // Error message moved from line 75. They either start over or return to the main screen.
 if (errorMessage == true) {
   return generatePassword();
 }
-else {
-  return;
-}
+
+// Now the MATH.
+
+var charLength = fullCharset.length;
+
+function randomNum() {
+  for (var i = 0; i < userLength; i++) {
+    //if (errorMessage !== true) {
+      var myNumber = Math.floor(Math.random() * charLength);
+      console.log(myNumber);
+      //i += fullCharset.substring(myNumber, myNumber + 1);
+//} 
+}};
+
+console.log(randomNum());
+
+
 
 }
-
   //what is the number they chose? 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
 
