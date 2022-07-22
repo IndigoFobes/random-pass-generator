@@ -3,13 +3,13 @@
 var fullList = {
   upper: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
   lower: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
-  num: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0], 
+  num: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], 
   special: [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"],
 }
 var fullCharset = [];
-var password = "";
 
 console.log("Hello people!");
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -26,6 +26,7 @@ function writePassword() {
 // HERE'S THE BIG IF/ELSE FUNCTION
 //Define generatePassword
 function generatePassword() {
+
   var userLength = window.prompt("Please enter how long you would like your password to be. It must be between 8 and 128 characters.");
 
   // If user clicks cancel, end prompt.
@@ -88,26 +89,35 @@ if (errorMessage == true) {
 
 // Now the MATH.
 
-var charLength = fullCharset.length;
+var charLength = fullCharset.length; //Keep this down here, otherwise the only character that shows up in my log is 'A'
 
-function randomNum() {
+function randomPass() {
+  var result = [];
   for (var i = 0; i < userLength; i++) {
-    //if (errorMessage !== true) {
+    // This finds a random number wihtin our fullCharset index... continues through the loop until it satisfies the userLength requirement.
       var myNumber = Math.floor(Math.random() * charLength);
-    
-      console.log(fullCharset[myNumber]);
-      //i += fullCharset.substring(myNumber, myNumber + 1);
+      var result = fullCharset[myNumber];
+      var result2 = Array.from(result);
+      var result3 = result2.join('');
+      console.log(result3);
+      
+      //Array.from(fullCharset[myNumber]); 
+      //return result.join('');
+      //console.log(result);
     }};
 
-randomNum();
+    randomPass();
 
 }
-
-
-
-  //what is the number they chose? 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
+
+
+ //results.push(userLength[i]);
+      //console.log(fullCharset[myNumber]);
+      //var fullNumber = fullCharset[myNumber].push(myNumber);
+      //console.log(fullNumber);
+      //i += fullCharset.substring(myNumber, myNumber + 1);
