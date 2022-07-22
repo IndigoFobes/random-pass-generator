@@ -9,6 +9,8 @@ var fullList = {
 var fullCharset = [];
 var password = "";
 
+console.log("Hello people!");
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -92,16 +94,17 @@ function randomNum() {
   for (var i = 0; i < userLength; i++) {
     //if (errorMessage !== true) {
       var myNumber = Math.floor(Math.random() * charLength);
-      console.log(myNumber);
+    
+      console.log(fullCharset[myNumber]);
       //i += fullCharset.substring(myNumber, myNumber + 1);
-//} 
-}};
+    }};
 
-console.log(randomNum());
-
-
+randomNum();
 
 }
+
+
+
   //what is the number they chose? 
 
 // Add event listener to generate button
