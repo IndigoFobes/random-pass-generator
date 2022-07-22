@@ -90,7 +90,6 @@ function generatePassword() {
 
 var charLength = fullCharset.length; //Keep this down here, otherwise the only character that shows up in my log is 'A'
 
-//function randomPass() {
   var result = [];
   for (var i = 0; i < userLength; i++) {
     // This finds a random number wihtin our fullCharset index... continues through the loop until it satisfies the userLength requirement.
@@ -100,11 +99,7 @@ var charLength = fullCharset.length; //Keep this down here, otherwise the only c
     return (
       result.join('')
     );
-    //console.log(result.join(''));
-  //};
 
-
-  //randomPass();
 
 }
 
@@ -113,9 +108,6 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-
- //results.push(userLength[i]);
-      //console.log(fullCharset[myNumber]);
-      //var fullNumber = fullCharset[myNumber].push(myNumber);
-      //console.log(fullNumber);
-      //i += fullCharset.substring(myNumber, myNumber + 1);
+// One interesting note... The user must refresh the screen in order to make a new password that follows new criteria.
+  // Do I need to have an 'else' statement that essentially says "If user chooses cancel, do not push to the array?"
+// What is input validation (as per the acceptance criteria)?
