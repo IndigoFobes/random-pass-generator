@@ -14,7 +14,6 @@ console.log("Hello people!");
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword()
@@ -26,6 +25,7 @@ function writePassword() {
 // HERE'S THE BIG IF/ELSE FUNCTION
 //Define generatePassword
 function generatePassword() {
+
 
   var userLength = window.prompt("Please enter how long you would like your password to be. It must be between 8 and 128 characters.");
 
@@ -59,7 +59,11 @@ function generatePassword() {
 
   // If the user selects 'cancel' for each character type, they will be asked to try again.
   if (userUpper == false && userLower == false && userNumbers == false && userSpecial == false) {
-    var errorMessage = window.confirm("You must select at least on kind of character to receive a password. Please try again.")
+    var errorMessage = window.confirm("You must select at least on kind of character to receive a password. Please try again.");
+    //Error message. You must choose at least on kind of character.
+    if (errorMessage == true) {
+      return generatePassword();
+    }
   }
 
 
@@ -80,36 +84,27 @@ function generatePassword() {
     fullCharset.push(...fullList.special);
   }
 
-    // console.log(fullCharset);
 
-   // Error message moved from line 75. They either start over or return to the main screen.
-if (errorMessage == true) {
-  return generatePassword();
-}
 
 // Now the MATH.
 
 var charLength = fullCharset.length; //Keep this down here, otherwise the only character that shows up in my log is 'A'
 
-function randomPass() {
+//function randomPass() {
   var result = [];
   for (var i = 0; i < userLength; i++) {
     // This finds a random number wihtin our fullCharset index... continues through the loop until it satisfies the userLength requirement.
       var myNumber = Math.floor(Math.random() * charLength);
       result.push(fullCharset[myNumber]);
-      //var result2 = Array.from(result);
-      //var result3 = result2.join('');
-      //console.log(result3);
-      
-      //Array.from(fullCharset[myNumber]); 
-      //return result.join('');
-      //console.log(result);
     }
-    return result.join('');
-  };
+    return (
+      result.join('')
+    );
+    //console.log(result.join(''));
+  //};
 
 
-    randomPass();
+  //randomPass();
 
 }
 
