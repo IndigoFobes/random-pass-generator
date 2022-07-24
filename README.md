@@ -11,3 +11,11 @@ The goal of this challenge is to create an application that generates a random, 
 5. The user's input should be validated, and at least one kind of character must be selected.
 6. A password is generated and displayed clearly to the user. 
 7. The password generated matches the criteria given by the user.
+
+## Screenshot
+![Screenshot](screenshot-random-pass.png)
+
+## Deployed Application
+Click [here]() for the live URL.
+
+Click [here](https://github.com/IndigoFobes/random-pass-generator.git) for my GitHub repository.
