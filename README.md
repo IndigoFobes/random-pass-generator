@@ -16,6 +16,6 @@ The goal of this challenge is to create an application that generates a random, 
 ![Screenshot](screenshot-random-pass.png)
 
 ## Deployed Application
-Click [here]() for the live URL.
+Click [here](https://indigofobes.github.io/random-pass-generator/Develop/) for the live URL.
 
 Click [here](https://github.com/IndigoFobes/random-pass-generator.git) for my GitHub repository.
